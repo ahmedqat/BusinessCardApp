@@ -66,7 +66,7 @@ fun Start(){
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,){
         Column (
-            Modifier.weight(5f),
+            Modifier.weight(10f),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
 
