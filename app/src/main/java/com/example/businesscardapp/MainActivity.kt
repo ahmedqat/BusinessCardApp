@@ -145,7 +145,7 @@ fun GitPic(modifier: Modifier = Modifier){
 fun MyPic(modifier: Modifier = Modifier){
     val image = painterResource(id = R.drawable.android_logo)
 
-        Image(
+    Image(
             painter = image,
             contentDescription = null,
             contentScale = ContentScale.Inside,
