@@ -7,8 +7,10 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -56,20 +58,29 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Start(){
 
-    Column(){
-        Column (
+    Column(
+        Modifier
 
-            Modifier
-                .fillMaxSize()
-                .background(color = Color(0xFF1E2650)),
+            .fillMaxSize()
+            .background(color = Color(0xFF1E2650)),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,){
+        Column (
+            Modifier.weight(5f),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
+
+
 
 
             ) {
             MyPic()
             TextMaker(name = stringResource(id = R.string.user_name), job = stringResource(id = R.string.user_job))
 
+        }
+        Column (Modifier.weight(1f),
+            horizontalAlignment = Alignment.CenterHorizontally) {
+            GitPic()
         }
     }
 
@@ -107,7 +118,25 @@ fun TextMaker(name: String, job: String, modifier: Modifier = Modifier){
 
 @Composable
 fun GitPic(modifier: Modifier = Modifier){
-    
+
+    val img = painterResource(id = R.drawable.github_mark_white)
+
+    Row (horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically){
+        Image(
+            painter = img,
+            contentDescription = null,
+            modifier = Modifier
+                .size(30.dp)
+        )
+
+        Text(
+            text = stringResource(id = R.string.git_link),
+            color = Color(0xFFFFFFFF)
+        )
+    }
+
+
+
 
 }
 
@@ -116,7 +145,8 @@ fun GitPic(modifier: Modifier = Modifier){
 fun MyPic(modifier: Modifier = Modifier){
     val image = painterResource(id = R.drawable.android_logo)
 
-        Image(painter = image,
+        Image(
+            painter = image,
             contentDescription = null,
             contentScale = ContentScale.Inside,
             modifier = Modifier
